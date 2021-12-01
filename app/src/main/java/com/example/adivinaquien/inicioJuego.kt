@@ -42,6 +42,11 @@ class inicioJuego : AppCompatActivity() {
             actionBar?.hide()
         }
 
+        var charPruba = CharService()
+        charPruba.turn("pelos", "Marron")
+        var arrayMoreno = charPruba.getRemoveArray()
+        println(arrayMoreno)
+
         val personaje =intent.getStringExtra("Personaje")
 
         val pers = arrayOf("p_abigail","p_alexander","p_anna","p_anthony","p_benjamin","p_campbell","p_charles","p_david","p_emma","p_ethan","p_jacob","p_jerry","p_laura","p_linda","p_lisa","p_madison","p_maria","p_martin","p_rachel","p_richard","p_roy","p_scott","p_sophia","p_tiffany")
