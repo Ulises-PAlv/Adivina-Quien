@@ -4,9 +4,9 @@ class CharService {
     // ### PROPIEDADES ###
     var singlePlayerCharacter: Character = Character("", "", "", arrayOf<String>(), arrayOf<String>(), 0)
 
-    var propertyCount: Array<Int> = arrayOf(4, 3, 4, 4)
+    var propertyCount: Array<Int> = arrayOf(5, 3, 4, 4)
 
-    val propertyPelos: Array<String> = arrayOf("Negro", "Amarillo", "Marron", "Naranja")
+    val propertyPelos: Array<String> = arrayOf("Negro", "Amarillo", "Marron", "Naranja", "Calvo")
     val propertyOjos: Array<String> = arrayOf("Marron", "Azul", "Verde")
     val propertyAccesorios: Array<String> = arrayOf("Gafas", "Pendientes", "Accesorio pelo", "Gorra")
     val propertyOtros: Array<String> = arrayOf("Clara", "Obscura", "Barba", "Bigote")
@@ -24,7 +24,7 @@ class CharService {
         Character("Ethan", "Amarillo", "Azul", arrayOf<String>("Gorra"), arrayOf<String>("Clara"), 10), // 10
         Character("Jacob", "Marron", "Marron", arrayOf<String>(), arrayOf<String>("Obscura"), 11), // 11
         Character("Jerry", "Negro", "Marron", arrayOf<String>("Gorra"), arrayOf<String>("Obscura"), 12), // 12
-        Character("Laura", "Naranja", "Verde", arrayOf<String>("Accesorio pelo", "Pendientes", "Gafas"), arrayOf<String>("Clara"), 13), // 13
+        Character("Laura", "Naranja", "Verde", arrayOf<String>("Accesorio pelo", "Pendientes"), arrayOf<String>("Clara"), 13), // 13
         Character("Linda", "Negro", "Azul", arrayOf<String>("Gafas", "Accesorio pelo"), arrayOf<String>("Clara"),14), // 14
         Character("Lisa", "Amarillo", "Azul", arrayOf<String>("Accesorio pelo"), arrayOf<String>("Clara"), 15), // 15
         Character("Madison", "Marron", "Verde", arrayOf<String>(), arrayOf<String>("Clara"), 16), // 16
@@ -52,8 +52,11 @@ class CharService {
     }
 
     fun compareVS_Character(property: String, value: String): Boolean {
+        println("Comparanding: " + property + " xdd " + value)
+
         when (property) {
             "pelos" -> {
+                println(this.singlePlayerCharacter.pelo)
                 if (value == this.singlePlayerCharacter.pelo) {
                     return true
                 } else {
@@ -61,13 +64,18 @@ class CharService {
                 }
             }
             "ojos" -> {
-                if (value == this.singlePlayerCharacter.pelo) {
+                if (value == this.singlePlayerCharacter.ojos) {
                     return true
                 } else {
                     return false
                 }
             }
             "accesorios" -> {
+                println("XDDDDDDDDD")
+                for (x in this.singlePlayerCharacter.accesorios) {
+                    println(x)
+                }
+                println(this.singlePlayerCharacter.accesorios.indexOf((value)))
                 if (this.singlePlayerCharacter.accesorios.indexOf(value) != -1) {
                     return true
                 } else {
@@ -75,7 +83,12 @@ class CharService {
                 }
             }
             "otros" -> {
-                if (this.singlePlayerCharacter.otros.indexOf(value) != 1) {
+                println("XDDDDDDDDD")
+                for (x in this.singlePlayerCharacter.otros) {
+                    println(x)
+                }
+                println(this.singlePlayerCharacter.otros.indexOf((value)))
+                if (this.singlePlayerCharacter.otros.indexOf(value) != -1) {
                     return true
                 } else {
                     return false
@@ -87,6 +100,7 @@ class CharService {
 
     fun turn(property: String, value: String) {
         var boolCompare = this.compareVS_Character(property, value)
+        println(boolCompare)
 
         if (boolCompare) {
             when(property) {
@@ -97,7 +111,7 @@ class CharService {
                             arrayValues.add(propertyPelos[i])
                         }
                     }
-                    this.repeater(arrayValues, property)
+                    this.repeater(arrayValues, property, "")
                 }
                 "ojos" -> {
                     var arrayValues: MutableList<String> = ArrayList()
@@ -106,7 +120,7 @@ class CharService {
                             arrayValues.add(propertyOjos[i])
                         }
                     }
-                    this.repeater(arrayValues, property)
+                    this.repeater(arrayValues, property, "")
                 }
                 "accesorios" -> {
                     var arrayValues: MutableList<String> = ArrayList()
@@ -115,7 +129,7 @@ class CharService {
                             arrayValues.add(propertyAccesorios[i])
                         }
                     }
-                    this.repeater(arrayValues, property)
+                    this.repeater(arrayValues, property, value)
                 }
                 "otros" -> {
                     var arrayValues: MutableList<String> = ArrayList()
@@ -124,7 +138,7 @@ class CharService {
                             arrayValues.add(propertyOtros[i])
                         }
                     }
-                    this.repeater(arrayValues, property)
+                    this.repeater(arrayValues, property, value)
                 }
             }
         } else {
@@ -141,8 +155,10 @@ class CharService {
         }
     }
 
-    private fun repeater(arrayValues: MutableList<String>, property: String) {
+    private fun repeater(arrayValues: MutableList<String>, property: String, originalValue: String) {
+        println("property: " + property)
         println("arrayValues: " + arrayValues)
+
 
         for(value in arrayValues) {
             for (c in this.characterList) {
@@ -151,13 +167,17 @@ class CharService {
                         "pelos" -> if (c.pelo == value) { c.removed = true }
                         "ojos" -> if (c.ojos == value) { c.removed = true }
                         "accesorios" -> {
-                            if (c.accesorios.indexOf(value) != -1) {
-                                c.removed = true
+                            if (c.accesorios.indexOf(originalValue) == -1) {
+                                if (c.accesorios.indexOf(value) != -1 || c.accesorios.size == 0) {
+                                    c.removed = true
+                                }
                             }
                         }
                         "otros" -> {
-                            if (c.otros.indexOf(value) != -1) {
-                                c.removed = true
+                            if (c.otros.indexOf(originalValue) == -1) {
+                                if (c.otros.indexOf(value) != -1 || c.otros == null) {
+                                    c.removed = true
+                                }
                             }
                         }
                     }
