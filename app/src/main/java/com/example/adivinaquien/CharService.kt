@@ -12,7 +12,7 @@ class CharService {
     val propertyOtros: Array<String> = arrayOf("Clara", "Obscura", "Barba", "Bigote")
 
     var characterList: List<Character> = listOf(
-        Character("Abigail", "Naranja", "Marron", arrayOf<String>("Gafas, Accesorio pelo"), arrayOf<String>("Clara"), 1), // 1
+        Character("Abigail", "Naranja", "Marron", arrayOf<String>("Accesorio pelo", "Gafas"), arrayOf<String>("Clara"), 1), // 1
         Character("Alexander", "Marron", "Azul", arrayOf<String>("Gorra"), arrayOf<String>("Clara", "Barba"), 2), // 2
         Character("Anna", "Negro", "Verde", arrayOf<String>("Pendientes"), arrayOf<String>("Obscura"), 3), // 3
         Character("Anthony", "Amarillo", "Marron", arrayOf<String>(), arrayOf<String>("Clara"), 4), // 4
@@ -250,4 +250,29 @@ class Character {
         this.otros = otros
         this.numero = numero
     }
+}
+
+class Puntaje {
+    private val BONUS_TURNO: Int = 150
+    private val PENALIZACION: Int = 15
+
+    private var penalizar: Int = 0
+    private var turnos: Int = 0
+    public var puntajeTotal: Int = 0
+
+    constructor() { }
+
+    private fun calcular() {
+        this.puntajeTotal = 1000
+        this.puntajeTotal += (this.turnos * BONUS_TURNO) - (this.penalizar * PENALIZACION)
+    }
+
+    public fun setValues(countTurnos: Int, countRemoved: Int) {
+        this.penalizar = countRemoved
+        this.turnos = countTurnos
+
+        this.calcular()
+    }
+
+    public fun getPuntaje(): Int { return this.puntajeTotal }
 }

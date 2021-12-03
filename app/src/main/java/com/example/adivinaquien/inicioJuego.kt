@@ -32,6 +32,9 @@ class inicioJuego : AppCompatActivity() {
     private lateinit var Img22: ImageView
     private lateinit var Img23: ImageView
 
+    private val TURNOS: Int = 7
+    var countTurnos: Int = 1
+
     val ready: ArrayList<Int> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -97,92 +100,219 @@ class inicioJuego : AppCompatActivity() {
             actionBar?.hide()
         }
 
-        var arrayReady =deck.getRemoveArray()
+        var Puntaje = Puntaje()
 
         this.getCharactersPosition()
 
         //----------------------
         btnCabelloMarron.setOnClickListener {
-            deck.turn("pelos", "Marron")
-            var arrayReady = deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("pelos", "Marron")
+                var arrayReady = deck.getRemoveArray()
+                removeCharacters(arrayReady)
+                countTurnos++
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
         }
         btnCabelloNegro.setOnClickListener {
-            deck.turn("pelos", "Negro")
-            var arrayReady =deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("pelos", "Negro")
+                var arrayReady =deck.getRemoveArray()
+                removeCharacters(arrayReady)
+                countTurnos++
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
         }
         btnCabelloAmarillo.setOnClickListener {
-            deck.turn("pelos", "Amarillo")
-            var arrayReady =deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("pelos", "Amarillo")
+                var arrayReady =deck.getRemoveArray()
+                removeCharacters(arrayReady)
+                countTurnos++
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
         }
         btnCabelloNaranja.setOnClickListener {
-            deck.turn("pelos", "Naranja")
-            var arrayReady =deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("pelos", "Naranja")
+                var arrayReady =deck.getRemoveArray()
+                removeCharacters(arrayReady)
+                countTurnos++
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
         }
         btnCabelloCalvo.setOnClickListener {
-            deck.turn("pelos", "Calvo")
-            var arrayReady =deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("pelos", "Calvo")
+                var arrayReady =deck.getRemoveArray()
+                removeCharacters(arrayReady)
+                countTurnos++
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
         }
         btnOjosMarron.setOnClickListener {
-            deck.turn("ojos", "Marron")
-            var arrayReady =deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("ojos", "Marron")
+                var arrayReady =deck.getRemoveArray()
+                removeCharacters(arrayReady)
+                countTurnos++
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
+
         }
         btnOjosVerde.setOnClickListener {
-            deck.turn("ojos", "Verde")
-            var arrayReady =deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("ojos", "Verde")
+                var arrayReady =deck.getRemoveArray()
+                removeCharacters(arrayReady)
+                countTurnos++
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
         }
         btnOjosAzul.setOnClickListener {
-            deck.turn("ojos", "Azul")
-            var arrayReady =deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("ojos", "Azul")
+                var arrayReady =deck.getRemoveArray()
+                removeCharacters(arrayReady)
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
         }
         btnAccesoriosGafas.setOnClickListener {
-            deck.turn("accesorios", "Gafas")
-            var arrayReady =deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("accesorios", "Gafas")
+                var arrayReady =deck.getRemoveArray()
+                removeCharacters(arrayReady)
+                countTurnos++
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
         }
         btnAccesoriosCabello.setOnClickListener {
-            deck.turn("accesorios", "Accesorio pelo")
-            var arrayReady =deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("accesorios", "Accesorio pelo")
+                var arrayReady =deck.getRemoveArray()
+                removeCharacters(arrayReady)
+                countTurnos++
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
         }
         btnAccesoriosPendientes.setOnClickListener {
-            deck.turn("accesorios", "Pendientes")
-            var arrayReady =deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("accesorios", "Pendientes")
+                var arrayReady =deck.getRemoveArray()
+                removeCharacters(arrayReady)
+                countTurnos++
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
         }
         btnAccesoriosGorra.setOnClickListener {
-            deck.turn("accesorios", "Gorra")
-            var arrayReady =deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("accesorios", "Gorra")
+                var arrayReady =deck.getRemoveArray()
+                removeCharacters(arrayReady)
+                countTurnos++
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
         }
         btnOtherBarba.setOnClickListener {
-            deck.turn("otros", "Barba")
-            var arrayReady =deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("otros", "Barba")
+                var arrayReady =deck.getRemoveArray()
+                removeCharacters(arrayReady)
+                countTurnos++
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
         }
         btnOtherBigote.setOnClickListener {
-            deck.turn("otros", "Bigote")
-            var arrayReady =deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("otros", "Bigote")
+                var arrayReady =deck.getRemoveArray()
+                removeCharacters(arrayReady)
+                countTurnos++
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
         }
         btnOtherMorena.setOnClickListener {
-            deck.turn("otros", "Obscura")
-            var arrayReady =deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("otros", "Obscura")
+                var arrayReady =deck.getRemoveArray()
+                removeCharacters(arrayReady)
+                countTurnos++
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
         }
         btnOtherClara.setOnClickListener {
-            deck.turn("otros", "Clara")
-            var arrayReady =deck.getRemoveArray()
-            removeCharacters(arrayReady)
+            if(this.countTurnos < this.TURNOS) {
+                deck.turn("otros", "Clara")
+                var arrayReady =deck.getRemoveArray()
+                removeCharacters(arrayReady)
+                countTurnos++
+            } else {
+                var arrayReady =deck.getRemoveArray()
+                Puntaje.setValues(countTurnos, arrayReady.size)
+                val totalPuntos =Puntaje.getPuntaje()
+                println("xxx> " + totalPuntos)
+            }
         }
-
     }
 
     private fun getCharactersPosition() {
