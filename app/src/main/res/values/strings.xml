@@ -2,4 +2,30 @@
     <string name="app_name">Adivina quien</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="winnerArray">
+        <item>Abigail</item>
+        <item>Alexander</item>
+        <item>Anna</item>
+        <item>Anthony</item>
+        <item>Benjamin</item>
+        <item>Campbell</item>
+        <item>Charles</item>
+        <item>David</item>
+        <item>Emma</item>
+        <item>Ethan</item>
+        <item>Jacob</item>
+        <item>Jerry</item>
+        <item>Laura</item>
+        <item>Linda</item>
+        <item>Lisa</item>
+        <item>Madison</item>
+        <item>Maria</item>
+        <item>Martin</item>
+        <item>Rachel</item>
+        <item>Richard</item>
+        <item>Roy</item>
+        <item>Scott</item>
+        <item>Sophia</item>
+        <item>Tiffany</item>
+    </string-array>
 </resources>

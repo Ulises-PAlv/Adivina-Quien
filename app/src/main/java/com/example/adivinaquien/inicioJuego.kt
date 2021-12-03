@@ -3,7 +3,7 @@ package com.example.adivinaquien
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
+import android.widget.*
 import com.github.clans.fab.FloatingActionButton
 
 class inicioJuego : AppCompatActivity() {
@@ -66,13 +66,15 @@ class inicioJuego : AppCompatActivity() {
         Img22 = findViewById(R.id.tab22)
         Img23 = findViewById(R.id.tab23)
 
+        val winner: EditText = findViewById(R.id.inputWinner)
+        val btnGanador: Button = findViewById(R.id.btnGanador)
+
         val personaje =intent.getStringExtra("Personaje")
         var deck = CharService()
 
         if (personaje != null) {
             deck.setSinglePlayerCharacter(personaje)
         }
-        println("adivinamesta: "+personaje)
 
         val btnCabelloMarron: FloatingActionButton =findViewById(R.id.btnCabelloMarron)
         val btnCabelloNegro: FloatingActionButton =findViewById(R.id.btnCabelloNegro)
@@ -105,6 +107,234 @@ class inicioJuego : AppCompatActivity() {
         this.getCharactersPosition()
 
         //----------------------
+        btnGanador.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+
+            if (winner.text.toString() == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+        /*
+        Img0.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+
+            if("Tiffany" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img1.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Abigail" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img2.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Alexander" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img3.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Anna" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img4.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Anthony" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img5.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Benjamin" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img6.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Campbell" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img7.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Charles" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img8.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("David" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img9.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Emma" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img10.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Ethan" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img11.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Jacob" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img12.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Jerry" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img13.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Laura" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img14.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Linda" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img15.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Lisa" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img16.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Madison" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img17.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Maria" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img18.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Martin" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img19.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Rachel" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img20.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Richard" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+        Img21.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Roy" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img22.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+            if("Scott" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+
+        Img23.setOnClickListener() {
+            var arrayReady =deck.getRemoveArray()
+
+            if("Sophia" == personaje) {
+                this.winner(arrayReady)
+            } else {
+                this.mamo(arrayReady)
+            }
+        }
+        */
+
         btnCabelloMarron.setOnClickListener {
             if(this.countTurnos < this.TURNOS) {
                 deck.turn("pelos", "Marron")
@@ -309,14 +539,29 @@ class inicioJuego : AppCompatActivity() {
             } else {
                 var arrayReady =deck.getRemoveArray()
                 Puntaje.setValues(countTurnos, arrayReady.size)
-                val totalPuntos =Puntaje.getPuntaje()
+                val totalPuntos = Puntaje.getPuntaje()
                 println("xxx> " + totalPuntos)
             }
         }
     }
 
+    private fun winner(array: MutableList<Int>) {
+        var Puntaje = Puntaje()
+        println("Ganaste chepe")
+        Puntaje.setValues(countTurnos, array.size)
+        val totalPuntos = Puntaje.getPuntaje()
+        println("xxx> " + totalPuntos)
+    }
+
+    private fun mamo(array: MutableList<Int>) {
+        var Puntaje = Puntaje()
+        println("No ganaste chepe")
+        Puntaje.setValues(countTurnos, array.size)
+        val totalPuntos = Puntaje.getPuntaje()
+        println("xxx> " + totalPuntos)
+    }
+
     private fun getCharactersPosition() {
-        //val ready: ArrayList<Int> = ArrayList()
         for (i in 0..23){
             do{
                 var flag = true
@@ -391,8 +636,6 @@ class inicioJuego : AppCompatActivity() {
             22 -> Img.setImageResource(R.drawable.p_scott)
             23 -> Img.setImageResource(R.drawable.p_sophia)
         }
-
-        println(ready)
     }
 
     private fun removeCharacters(removed: MutableList<Int>) {

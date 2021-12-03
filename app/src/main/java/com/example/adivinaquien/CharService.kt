@@ -71,11 +71,6 @@ class CharService {
                 }
             }
             "accesorios" -> {
-                println("XDDDDDDDDD")
-                for (x in this.singlePlayerCharacter.accesorios) {
-                    println(x)
-                }
-                println(this.singlePlayerCharacter.accesorios.indexOf((value)))
                 if (this.singlePlayerCharacter.accesorios.indexOf(value) != -1) {
                     return true
                 } else {
@@ -83,11 +78,6 @@ class CharService {
                 }
             }
             "otros" -> {
-                println("XDDDDDDDDD")
-                for (x in this.singlePlayerCharacter.otros) {
-                    println(x)
-                }
-                println(this.singlePlayerCharacter.otros.indexOf((value)))
                 if (this.singlePlayerCharacter.otros.indexOf(value) != -1) {
                     return true
                 } else {
@@ -100,7 +90,6 @@ class CharService {
 
     fun turn(property: String, value: String) {
         var boolCompare = this.compareVS_Character(property, value)
-        println(boolCompare)
 
         if (boolCompare) {
             when(property) {
